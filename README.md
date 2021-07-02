@@ -1,2 +1,2 @@
-# Schul-BOT
-Schul Bot
+# Discord-Bot
+Discord Bot
