@@ -1,0 +1,258 @@
+{
+  "command": [
+    {
+      "name": "help",
+      "actions": []
+    },
+    {
+      "name": "warn",
+      "actions": [
+        {
+          "name": "checkpremission",
+          "category": "User Action",
+          "type": "Check User Permissions",
+          "trueActions": [
+            {
+              "name": "usertowarn",
+              "category": "Variable",
+              "type": "Get Mentioned User",
+              "varname": "usertowarn",
+              "vartype": "User",
+              "savevartype": "temp"
+            },
+            {
+              "name": "edituserwarn",
+              "category": "User Data",
+              "type": "Edit User Data",
+              "user": "${tempVars.usertowarn.id}",
+              "field": "warn",
+              "oper": "+",
+              "value": "1"
+            },
+            {
+              "name": "reasontowarn",
+              "category": "Variable",
+              "type": "Store Value in Variable",
+              "varname": "reasontowarn",
+              "vartype": "Text",
+              "savevartype": "temp",
+              "param": "2+"
+            },
+            {
+              "name": "bestätigungtowarn",
+              "category": "Message",
+              "type": "Send Embed",
+              "channelname": "${dbsVars.CommandChannel.id}",
+              "color": "1AFF00",
+              "title": "Erfolgreich",
+              "url": "",
+              "authorname": "",
+              "authorimageurl": "",
+              "authorlink": "",
+              "description": "Der User <@${tempVars.usertowarn.id}> wurde erfolgreich gewarnt.",
+              "thumbnail": "",
+              "image": "",
+              "footer": "",
+              "timestamp": "BOOL_TRUE@@",
+              "savetovariable": "",
+              "savetovariabletype": "temp"
+            },
+            {
+              "name": "logtowarn",
+              "category": "Message",
+              "type": "Send Embed",
+              "channelname": "discord-logs",
+              "color": "FFFFFF",
+              "title": "",
+              "url": "",
+              "authorname": "",
+              "authorimageurl": "",
+              "authorlink": "",
+              "description": "",
+              "thumbnail": "",
+              "image": "",
+              "footer": "",
+              "timestamp": "false",
+              "savetovariable": "",
+              "savetovariabletype": "temp"
+            }
+          ],
+          "falseActions": [],
+          "user": "${dbsVars.CommandAuthor.id}",
+          "permissions": [
+            "MUTE_MEMBERS"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "kick",
+      "actions": [
+        {
+          "name": "checkpremission_1",
+          "category": "User Action",
+          "type": "Check User Permissions",
+          "trueActions": [
+            {
+              "name": "usertokick",
+              "category": "Variable",
+              "type": "Get Mentioned User",
+              "varname": "usertokick",
+              "vartype": "User",
+              "savevartype": "temp"
+            },
+            {
+              "name": "edituserkick",
+              "category": "User Data",
+              "type": "Edit User Data",
+              "user": "${tempVars.usertokick.id}",
+              "field": "kick",
+              "oper": "+",
+              "value": "1"
+            },
+            {
+              "name": "reasontokick",
+              "category": "Variable",
+              "type": "Store Value in Variable",
+              "varname": "reasontokick",
+              "vartype": "Text",
+              "savevartype": "temp",
+              "param": "2+"
+            },
+            {
+              "name": "kickuser",
+              "category": "User Action",
+              "type": "Kick User",
+              "user": "${tempVars.usertokick.id}",
+              "reason": ""
+            },
+            {
+              "name": "bestätigungtokick",
+              "category": "Message",
+              "type": "Send Embed",
+              "channelname": "${dbsVars.CommandChannel.id}",
+              "color": "1AFF00",
+              "title": "Erfolgreich",
+              "url": "",
+              "authorname": "",
+              "authorimageurl": "",
+              "authorlink": "",
+              "description": "Der User <@${tempVars.usertokick.id}> wurde erfolgreich gekickt.",
+              "thumbnail": "",
+              "image": "",
+              "footer": "",
+              "timestamp": "BOOL_TRUE@@",
+              "savetovariable": "",
+              "savetovariabletype": "temp"
+            },
+            {
+              "name": "logtokick",
+              "category": "Message",
+              "type": "Send Embed",
+              "channelname": "discord-logs",
+              "color": "FFFFFF",
+              "title": "",
+              "url": "",
+              "authorname": "",
+              "authorimageurl": "",
+              "authorlink": "",
+              "description": "",
+              "thumbnail": "",
+              "image": "",
+              "footer": "",
+              "timestamp": "false",
+              "savetovariable": "",
+              "savetovariabletype": "temp"
+            }
+          ],
+          "falseActions": [],
+          "user": "${dbsVars.CommandAuthor.id}",
+          "permissions": [
+            "KICK_MEMBERS"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ban",
+      "actions": [
+        {
+          "name": "checkpremission_2",
+          "category": "User Action",
+          "type": "Check User Permissions",
+          "trueActions": [
+            {
+              "name": "usertoban",
+              "category": "Variable",
+              "type": "Get Mentioned User",
+              "varname": "usertoban",
+              "vartype": "User",
+              "savevartype": "temp"
+            },
+            {
+              "name": "edituserban",
+              "category": "User Data",
+              "type": "Edit User Data",
+              "user": "${tempVars.usertoban.id}",
+              "field": "ban",
+              "oper": "+",
+              "value": "1"
+            },
+            {
+              "name": "reasontoban",
+              "category": "Variable",
+              "type": "Store Value in Variable",
+              "varname": "reasontoban",
+              "vartype": "Text",
+              "savevartype": "temp",
+              "param": "2+"
+            },
+            {
+              "name": "bestätigungtoban",
+              "category": "Message",
+              "type": "Send Embed",
+              "channelname": "${dbsVars.CommandChannel.id}",
+              "color": "1AFF00",
+              "title": "Erfolgreich",
+              "url": "",
+              "authorname": "",
+              "authorimageurl": "",
+              "authorlink": "",
+              "description": "Der User <@${tempVars.usertoban.id}> wurde erfolgreich gebannt.",
+              "thumbnail": "",
+              "image": "",
+              "footer": "",
+              "timestamp": "BOOL_TRUE@@",
+              "savetovariable": "",
+              "savetovariabletype": "temp"
+            },
+            {
+              "name": "logtoban",
+              "category": "Message",
+              "type": "Send Embed",
+              "channelname": "discord-logs",
+              "color": "FFFFFF",
+              "title": "",
+              "url": "",
+              "authorname": "",
+              "authorimageurl": "",
+              "authorlink": "",
+              "description": "",
+              "thumbnail": "",
+              "image": "",
+              "footer": "",
+              "timestamp": "false",
+              "savetovariable": "",
+              "savetovariabletype": "temp"
+            }
+          ],
+          "falseActions": [],
+          "user": "${dbsVars.CommandAuthor.id}",
+          "permissions": [
+            "BAN_MEMBERS"
+          ]
+        }
+      ]
+    }
+  ]
+}
