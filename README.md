@@ -23,4 +23,17 @@ Was du brauchst.
     - Nun suche das Feld token und ersetze den token durch deinen Token den du gerade kopiert hast
     - Speicher die Datei ab
 
+3.Schritt:
+  - Gehe zu Discord-Bot-main und mache rechtklick drauf und PowerShell-Fenster hier öffnen
+    - In dem geöfneten Fenster gibst du ein npm i 
+    - Danach wenn alles gedownloaded ist gebe ein node bot 
+
+Das war alles und dein Bot läuft.
+
+Commands:
+
+!kick [@User] [Reason]
+!ban [@User] [Reason]
+!warn [@User] [Reason]
+
 
