@@ -1,0 +1,917 @@
+{
+  "nodes": [
+    {
+      "type": "command",
+      "name": "help",
+      "guid": "7942fe4c-dffa-4146-8cab-d254b3d80d5d",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": []
+        }
+      ],
+      "x": 146,
+      "y": 205
+    },
+    {
+      "type": "command",
+      "name": "warn",
+      "guid": "934f8d1e-9cbb-49a1-8cc4-777c9f7052d7",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "2bcc7c09-fd48-49e5-abf0-f3f20755c725"
+          ]
+        }
+      ],
+      "x": 145,
+      "y": 404
+    },
+    {
+      "type": "command",
+      "name": "kick",
+      "guid": "f7c4dd53-5319-4557-a50d-ddcaf25380e9",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "825fa3f6-964c-4286-b524-2ff29c78cc82"
+          ]
+        }
+      ],
+      "x": 144,
+      "y": 605
+    },
+    {
+      "type": "command",
+      "name": "ban",
+      "guid": "b24dc3dc-1603-470d-b73b-bb38af715a34",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "f0748a3c-872c-4e93-8464-eacb63e1133f"
+          ]
+        }
+      ],
+      "x": 144,
+      "y": 805
+    },
+    {
+      "type": "response",
+      "name": "checkpremission",
+      "guid": "2bcc7c09-fd48-49e5-abf0-f3f20755c725",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "has perms",
+          "connections": [
+            "64027a53-c798-4ffe-b0c6-28fcdcb84bbd"
+          ]
+        },
+        {
+          "label": "doesn't have perms",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "934f8d1e-9cbb-49a1-8cc4-777c9f7052d7"
+        }
+      ],
+      "x": 345,
+      "y": 405,
+      "rtype": "User Action",
+      "rsubtype": "Check User Permissions",
+      "formdata": [
+        "${dbsVars.CommandAuthor.id}",
+        [
+          "MUTE_MEMBERS"
+        ]
+      ],
+      "formnames": [
+        "user",
+        "permissions"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "checkpremission_1",
+      "guid": "825fa3f6-964c-4286-b524-2ff29c78cc82",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "has perms",
+          "connections": [
+            "ea702bda-bad8-454b-b931-190344116754"
+          ]
+        },
+        {
+          "label": "doesn't have perms",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "f7c4dd53-5319-4557-a50d-ddcaf25380e9"
+        }
+      ],
+      "x": 342,
+      "y": 606,
+      "rtype": "User Action",
+      "rsubtype": "Check User Permissions",
+      "formdata": [
+        "${dbsVars.CommandAuthor.id}",
+        [
+          "KICK_MEMBERS"
+        ]
+      ],
+      "formnames": [
+        "user",
+        "permissions"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "checkpremission_2",
+      "guid": "f0748a3c-872c-4e93-8464-eacb63e1133f",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "has perms",
+          "connections": [
+            "4ed128c4-a689-4975-b6ea-8cc369e19a7d"
+          ]
+        },
+        {
+          "label": "doesn't have perms",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "b24dc3dc-1603-470d-b73b-bb38af715a34"
+        }
+      ],
+      "x": 344,
+      "y": 805,
+      "rtype": "User Action",
+      "rsubtype": "Check User Permissions",
+      "formdata": [
+        "${dbsVars.CommandAuthor.id}",
+        [
+          "BAN_MEMBERS"
+        ]
+      ],
+      "formnames": [
+        "user",
+        "permissions"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "usertowarn",
+      "guid": "64027a53-c798-4ffe-b0c6-28fcdcb84bbd",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "fc1aa426-ee91-4383-b17c-9bc52ae21a5b"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "2bcc7c09-fd48-49e5-abf0-f3f20755c725"
+        }
+      ],
+      "x": 545,
+      "y": 406,
+      "rtype": "Variable",
+      "rsubtype": "Get Mentioned User",
+      "formdata": [
+        "usertowarn",
+        "User",
+        "temp"
+      ],
+      "formnames": [
+        "varname",
+        "vartype",
+        "saveVarType"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "usertokick",
+      "guid": "ea702bda-bad8-454b-b931-190344116754",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "31293cac-5026-47cc-b66a-ed8fb585256e"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "825fa3f6-964c-4286-b524-2ff29c78cc82"
+        }
+      ],
+      "x": 545,
+      "y": 604,
+      "rtype": "Variable",
+      "rsubtype": "Get Mentioned User",
+      "formdata": [
+        "usertokick",
+        "User",
+        "temp"
+      ],
+      "formnames": [
+        "varname",
+        "vartype",
+        "saveVarType"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "usertoban",
+      "guid": "4ed128c4-a689-4975-b6ea-8cc369e19a7d",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "7df5db9b-60ea-4af2-839b-dbca30f18dca"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "f0748a3c-872c-4e93-8464-eacb63e1133f"
+        }
+      ],
+      "x": 545,
+      "y": 806,
+      "rtype": "Variable",
+      "rsubtype": "Get Mentioned User",
+      "formdata": [
+        "usertoban",
+        "User",
+        "temp"
+      ],
+      "formnames": [
+        "varname",
+        "vartype",
+        "saveVarType"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "edituserwarn",
+      "guid": "fc1aa426-ee91-4383-b17c-9bc52ae21a5b",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "d253bef2-a440-408a-bbe9-8a946af538ee"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "64027a53-c798-4ffe-b0c6-28fcdcb84bbd"
+        }
+      ],
+      "x": 745,
+      "y": 405,
+      "rtype": "User Data",
+      "rsubtype": "Edit User Data",
+      "formdata": [
+        "${tempVars.usertowarn.id}",
+        "warn",
+        "+",
+        "1"
+      ],
+      "formnames": [
+        "user",
+        "field",
+        "oper",
+        "value"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "edituserkick",
+      "guid": "31293cac-5026-47cc-b66a-ed8fb585256e",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "c389750b-bb99-448b-ab05-dab26c0e7f07"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "ea702bda-bad8-454b-b931-190344116754"
+        }
+      ],
+      "x": 745,
+      "y": 607,
+      "rtype": "User Data",
+      "rsubtype": "Edit User Data",
+      "formdata": [
+        "${tempVars.usertokick.id}",
+        "kick",
+        "+",
+        "1"
+      ],
+      "formnames": [
+        "user",
+        "field",
+        "oper",
+        "value"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "edituserban",
+      "guid": "7df5db9b-60ea-4af2-839b-dbca30f18dca",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "0bb2e601-1564-4884-82f1-39ada48e681c"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "4ed128c4-a689-4975-b6ea-8cc369e19a7d"
+        }
+      ],
+      "x": 746,
+      "y": 806,
+      "rtype": "User Data",
+      "rsubtype": "Edit User Data",
+      "formdata": [
+        "${tempVars.usertoban.id}",
+        "ban",
+        "+",
+        "1"
+      ],
+      "formnames": [
+        "user",
+        "field",
+        "oper",
+        "value"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "kickuser",
+      "guid": "46250a4f-adf7-4a67-91ee-bc6702beefe7",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "c371b978-0d6e-43e9-9d29-d64868f4d455"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "c389750b-bb99-448b-ab05-dab26c0e7f07"
+        }
+      ],
+      "x": 1144,
+      "y": 606,
+      "rtype": "User Action",
+      "rsubtype": "Kick User",
+      "formdata": [
+        "${tempVars.usertokick.id}",
+        ""
+      ],
+      "formnames": [
+        "user",
+        "reason"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "banuser",
+      "guid": "fc53e50c-1ea6-4611-8746-3b403c6d4a8b",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "942e4ff8-9079-44a0-b08f-f5fe18846af3"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "0bb2e601-1564-4884-82f1-39ada48e681c"
+        }
+      ],
+      "x": 1148,
+      "y": 807,
+      "rtype": "User Action",
+      "rsubtype": "Ban User"
+    },
+    {
+      "type": "response",
+      "name": "reasontokick",
+      "guid": "c389750b-bb99-448b-ab05-dab26c0e7f07",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "reasontokick",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "46250a4f-adf7-4a67-91ee-bc6702beefe7"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "31293cac-5026-47cc-b66a-ed8fb585256e"
+        }
+      ],
+      "x": 946,
+      "y": 607,
+      "rtype": "Variable",
+      "rsubtype": "Store Value in Variable",
+      "formdata": [
+        "reasontokick",
+        "Text",
+        "temp",
+        "2+"
+      ],
+      "formnames": [
+        "varname",
+        "vartype",
+        "saveVarType",
+        "param"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "reasontowarn",
+      "guid": "d253bef2-a440-408a-bbe9-8a946af538ee",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "reasontowarn",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "b86a3e69-f22a-4b91-b8a0-c2cd437c78f5"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "fc1aa426-ee91-4383-b17c-9bc52ae21a5b"
+        }
+      ],
+      "x": 945,
+      "y": 402,
+      "rtype": "Variable",
+      "rsubtype": "Store Value in Variable",
+      "formdata": [
+        "reasontowarn",
+        "Text",
+        "temp",
+        "2+"
+      ],
+      "formnames": [
+        "varname",
+        "vartype",
+        "saveVarType",
+        "param"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "reasontoban",
+      "guid": "0bb2e601-1564-4884-82f1-39ada48e681c",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "reasontoban",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "fc53e50c-1ea6-4611-8746-3b403c6d4a8b"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "7df5db9b-60ea-4af2-839b-dbca30f18dca"
+        }
+      ],
+      "x": 944,
+      "y": 805,
+      "rtype": "Variable",
+      "rsubtype": "Store Value in Variable",
+      "formdata": [
+        "reasontoban",
+        "Text",
+        "temp",
+        "2+"
+      ],
+      "formnames": [
+        "varname",
+        "vartype",
+        "saveVarType",
+        "param"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "bestätigungtowarn",
+      "guid": "b86a3e69-f22a-4b91-b8a0-c2cd437c78f5",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "caea7a76-3301-4e6d-8665-2752725796c3"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "d253bef2-a440-408a-bbe9-8a946af538ee"
+        }
+      ],
+      "x": 1148,
+      "y": 405,
+      "rtype": "Message",
+      "rsubtype": "Send Embed",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "1AFF00",
+        "Erfolgreich",
+        "",
+        "",
+        "",
+        "",
+        "Der User <@${tempVars.usertowarn.id}> wurde erfolgreich gewarnt.",
+        "",
+        "",
+        "",
+        "BOOL_TRUE@@",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelname",
+        "color",
+        "title",
+        "url",
+        "authorname",
+        "authorimageurl",
+        "authorlink",
+        "description",
+        "thumbnail",
+        "image",
+        "footer",
+        "timestamp",
+        "saveToVariable",
+        "saveToVariableType"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "bestätigungtokick",
+      "guid": "c371b978-0d6e-43e9-9d29-d64868f4d455",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "9b33e6e2-edb3-4ac1-b4cc-4f6a98d08857"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "46250a4f-adf7-4a67-91ee-bc6702beefe7"
+        }
+      ],
+      "x": 1347,
+      "y": 604,
+      "rtype": "Message",
+      "rsubtype": "Send Embed",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "1AFF00",
+        "Erfolgreich",
+        "",
+        "",
+        "",
+        "",
+        "Der User <@${tempVars.usertokick.id}> wurde erfolgreich gekickt.",
+        "",
+        "",
+        "",
+        "BOOL_TRUE@@",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelname",
+        "color",
+        "title",
+        "url",
+        "authorname",
+        "authorimageurl",
+        "authorlink",
+        "description",
+        "thumbnail",
+        "image",
+        "footer",
+        "timestamp",
+        "saveToVariable",
+        "saveToVariableType"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "bestätigungtoban",
+      "guid": "942e4ff8-9079-44a0-b08f-f5fe18846af3",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "4de5a8f8-d11b-426d-85bf-1d57a2b0022c"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "fc53e50c-1ea6-4611-8746-3b403c6d4a8b"
+        }
+      ],
+      "x": 1349,
+      "y": 806,
+      "rtype": "Message",
+      "rsubtype": "Send Embed",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "1AFF00",
+        "Erfolgreich",
+        "",
+        "",
+        "",
+        "",
+        "Der User <@${tempVars.usertoban.id}> wurde erfolgreich gebannt.",
+        "",
+        "",
+        "",
+        "BOOL_TRUE@@",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelname",
+        "color",
+        "title",
+        "url",
+        "authorname",
+        "authorimageurl",
+        "authorlink",
+        "description",
+        "thumbnail",
+        "image",
+        "footer",
+        "timestamp",
+        "saveToVariable",
+        "saveToVariableType"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "logtowarn",
+      "guid": "caea7a76-3301-4e6d-8665-2752725796c3",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "b86a3e69-f22a-4b91-b8a0-c2cd437c78f5"
+        }
+      ],
+      "x": 1347,
+      "y": 405,
+      "rtype": "Message",
+      "rsubtype": "Send Embed",
+      "formdata": [
+        "discord-logs",
+        "FFFFFF",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "false",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelname",
+        "color",
+        "title",
+        "url",
+        "authorname",
+        "authorimageurl",
+        "authorlink",
+        "description",
+        "thumbnail",
+        "image",
+        "footer",
+        "timestamp",
+        "saveToVariable",
+        "saveToVariableType"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "logtokick",
+      "guid": "9b33e6e2-edb3-4ac1-b4cc-4f6a98d08857",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "c371b978-0d6e-43e9-9d29-d64868f4d455"
+        }
+      ],
+      "x": 1547,
+      "y": 606,
+      "rtype": "Message",
+      "rsubtype": "Send Embed",
+      "formdata": [
+        "discord-logs",
+        "FFFFFF",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "false",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelname",
+        "color",
+        "title",
+        "url",
+        "authorname",
+        "authorimageurl",
+        "authorlink",
+        "description",
+        "thumbnail",
+        "image",
+        "footer",
+        "timestamp",
+        "saveToVariable",
+        "saveToVariableType"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "logtoban",
+      "guid": "4de5a8f8-d11b-426d-85bf-1d57a2b0022c",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "942e4ff8-9079-44a0-b08f-f5fe18846af3"
+        }
+      ],
+      "x": 1547,
+      "y": 804,
+      "rtype": "Message",
+      "rsubtype": "Send Embed",
+      "formdata": [
+        "discord-logs",
+        "FFFFFF",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "false",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelname",
+        "color",
+        "title",
+        "url",
+        "authorname",
+        "authorimageurl",
+        "authorlink",
+        "description",
+        "thumbnail",
+        "image",
+        "footer",
+        "timestamp",
+        "saveToVariable",
+        "saveToVariableType"
+      ]
+    }
+  ]
+}
