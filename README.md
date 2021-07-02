@@ -10,6 +10,7 @@ Was du brauchst.
   - Discord Bot
   - Nodejs
 
+
 1. Schritt:
   - Erstelle einen Discord Bot auf "https://discord.com/developers/applications"
     - Drücke auf New Application 
